@@ -8,14 +8,12 @@ const Title = () => {
 const Content = () => {
     return (
         <React.Fragment>
-            <div>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Vel veniam est nemo cumque nulla iste magni unde corporis
-                    earum placeat exercitationem, sapiente culpa rerum repellat!
-                    Fuga optio nemo quae doloribus.
-                </p>
-            </div>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
+                veniam est nemo cumque nulla iste magni unde corporis earum
+                placeat exercitationem, sapiente culpa rerum repellat! Fuga
+                optio nemo quae doloribus.
+            </p>
         </React.Fragment>
     )
 }
