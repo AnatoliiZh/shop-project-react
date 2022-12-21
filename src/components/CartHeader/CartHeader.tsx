@@ -1,3 +1,5 @@
+import './CartHeader.css'
+
 type Props = {}
 const CartHeader = (props: Props) => {
     return (
