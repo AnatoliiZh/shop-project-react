@@ -1,23 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Title } from './Title'
 
-type TitleProps = {
-    title: string
+type ContentProps = {
+    p1: string
+    p2: string
 }
 
-const Title = (props: TitleProps) => {
-    return <h1>Hello {props.title}</h1>
-}
-
-const Content = () => {
+const Content = (props: ContentProps) => {
     return (
         <React.Fragment>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
-                veniam est nemo cumque nulla iste magni unde corporis earum
-                placeat exercitationem, sapiente culpa rerum repellat! Fuga
-                optio nemo quae doloribus.
-            </p>
+            <p>{props.p1}</p>
+            <p>{props.p2}</p>
         </React.Fragment>
     )
 }
@@ -27,8 +21,11 @@ const App = () => {
         <>
             <Title title="React" />
             <Title title="TS" />
-            <Title title="JS" />
-            <Content />
+            <Title title={10} />
+            <Content
+                p1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facilis quaerat sapiente offic"
+                p2="oiho oiyo iyoiyo ioiy"
+            />
         </>
     )
 }
