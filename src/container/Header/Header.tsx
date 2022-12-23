@@ -8,13 +8,17 @@ import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 import Logo from 'components/Logo/Logo'
 import { green } from '@mui/material/colors'
-import './Header.css'
+import './Header.scss'
 
 type Props = {}
 const Header = (props: Props) => {
+    let appBar = false
     return (
         <>
-            <AppBar position="static" className="app-bar">
+            <AppBar
+                position="static"
+                className={`${appBar ? 'app-bar-grey' : 'app-bar'}`}
+            >
                 <Container maxWidth="lg">
                     <Toolbar>
                         <IconButton
