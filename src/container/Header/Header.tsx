@@ -7,12 +7,18 @@ import Container from '@mui/material/Container'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 import Logo from 'components/Logo/Logo'
+import { green } from '@mui/material/colors'
 
 type Props = {}
 const Header = (props: Props) => {
     return (
         <>
-            <AppBar position="static">
+            <AppBar
+                position="static"
+                style={{
+                    background: 'green',
+                }}
+            >
                 <Container maxWidth="lg">
                     <Toolbar>
                         <IconButton
