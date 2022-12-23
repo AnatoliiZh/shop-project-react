@@ -15,7 +15,7 @@ const Header = (props: Props) => {
         <>
             <AppBar
                 position="static"
-                style={{
+                sx={{
                     background: 'green',
                 }}
             >
