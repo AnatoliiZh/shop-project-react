@@ -4,15 +4,15 @@ import productsArray from 'utils/productsArray'
 
 type Props = {}
 
-let res = productsArray.map(function (item) {
+let products_from_array = productsArray.map(function (i) {
     return (
         <Grid item xs={12} sm={6} md={4}>
             <ProductsListItem
-                title={item.title}
-                desc={item.desc}
-                type={item.type}
-                capacity={item.capacity}
-                price={item.price}
+                title={i.title}
+                desc={i.desc}
+                type={i.type}
+                capacity={i.capacity}
+                price={i.price}
             />
         </Grid>
     )
@@ -28,7 +28,7 @@ const ProductsList = (props: Props) => {
                 alignItems="center"
                 spacing={4}
             >
-                {res}
+                {products_from_array}
             </Grid>
         </>
     )
