@@ -6,7 +6,7 @@ import {
     CardContent,
     TextField,
 } from '@mui/material'
-import { Component, ReactNode } from 'react'
+import { Component } from 'react'
 
 type Props = {
     title: string
@@ -17,29 +17,53 @@ type Props = {
     image: string
 }
 
-class ProductsListItem extends Component<Props> {
+type State = {
+    count: number
+}
+
+class ProductsListItem extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+        this.onIncrement = this.onIncrement.bind(this)
+        this.state = {
+            count: 1,
+        }
+    }
+
+    onIncrement() {
+        this.setState((prevState: State) => ({
+            count: prevState.count + 1,
+        }))
+    }
+
     render() {
+        const { title, desc, type, capacity, price, image } = this.props
+
         return (
             <Card className="product" variant="outlined">
                 <CardContent>
                     <div className="product-img">
-                        <img src={this.props.image} alt="" />
+                        <img src={image} alt="" />
                     </div>
-                    <div className="product-title">{this.props.title}</div>
-                    <div className="product-decs">{this.props.desc}</div>
+                    <div className="product-title">{title}</div>
+                    <div className="product-decs">{desc}</div>
                     <div className="product-features">
-                        <span>Type:</span> {this.props.type}
+                        <span>Type:</span> {type}
                     </div>
                     <div className="product-features">
-                        <span>Capacity:</span> {this.props.capacity}
+                        <span>Capacity:</span> {capacity}
                     </div>
                     <div className="product-price">
-                        <span>Price:</span> {this.props.price}$
+                        <span>Price:</span> {price}$
                     </div>
                     <div className="product-quantity">
                         <Button variant="outlined">-</Button>
-                        <TextField value="1" size="small" />
-                        <Button className="product-count" variant="outlined">
+                        <TextField value={this.state.count} size="small" />
+                        <Button
+                            className="product-count"
+                            variant="outlined"
+                            onClick={this.onIncrement}
+                        >
                             +
                         </Button>
                     </div>
