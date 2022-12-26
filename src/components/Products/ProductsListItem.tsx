@@ -6,6 +6,7 @@ import {
     CardContent,
     TextField,
 } from '@mui/material'
+import { Component, ReactNode } from 'react'
 
 type Props = {
     title: string
@@ -16,42 +17,50 @@ type Props = {
     image: string
 }
 
-const ProductsListItem = ({
-    title,
-    desc,
-    type,
-    capacity,
-    price,
-    image,
-}: Props) => {
-    return (
-        <Card className="product" variant="outlined">
-            <CardContent>
-                <div className="product-img">
-                    <img src={image} alt="" />
-                </div>
-                <div className="product-title">{title}</div>
-                <div className="product-decs">{desc}</div>
-                <div className="product-features">
-                    <span>Type:</span> {type}
-                </div>
-                <div className="product-features">
-                    <span>Capacity:</span> {capacity}
-                </div>
-                <div className="product-price">
-                    <span>Price:</span> {price}$
-                </div>
-                <div className="product-quantity">
-                    <Button variant="outlined">-</Button>
-                    <TextField value="1" size="small" />
-                    <Button variant="outlined">+</Button>
-                </div>
-            </CardContent>
-            <CardActions className="btns-wrap">
-                <Button variant="outlined">Add to cart</Button>
-            </CardActions>
-        </Card>
-    )
+class ProductsListItem extends Component<Props> {
+    render() {
+        return (
+            <Card className="product" variant="outlined">
+                <CardContent>
+                    <div className="product-img">
+                        <img src={this.props.image} alt="" />
+                    </div>
+                    <div className="product-title">{this.props.title}</div>
+                    <div className="product-decs">{this.props.desc}</div>
+                    <div className="product-features">
+                        <span>Type:</span> {this.props.type}
+                    </div>
+                    <div className="product-features">
+                        <span>Capacity:</span> {this.props.capacity}
+                    </div>
+                    <div className="product-price">
+                        <span>Price:</span> {this.props.price}$
+                    </div>
+                    <div className="product-quantity">
+                        <Button variant="outlined">-</Button>
+                        <TextField value="1" size="small" />
+                        <Button className="product-count" variant="outlined">
+                            +
+                        </Button>
+                    </div>
+                </CardContent>
+                <CardActions className="btns-wrap">
+                    <Button variant="outlined">Add to cart</Button>
+                </CardActions>
+            </Card>
+        )
+    }
 }
+
+// const ProductsListItem = ({
+//     title,
+//     desc,
+//     type,
+//     capacity,
+//     price,
+//     image,
+// }: Props) => {
+
+// }
 
 export default ProductsListItem
