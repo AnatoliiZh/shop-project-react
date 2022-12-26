@@ -1,4 +1,5 @@
 type ProductProps = {
+    id: number
     title: string
     desc: string
     type: string
@@ -8,6 +9,7 @@ type ProductProps = {
 
 const productsArray:ProductProps[] = [
     {
+        id:1,
     title: "Iphone 14",
     desc: "bla-bla",
     type: "phone",
@@ -15,6 +17,7 @@ const productsArray:ProductProps[] = [
     price: 500
     },
     {
+        id:2,
         title: "Iphone 12",
         desc: "bla-bla",
         type: "phone",
@@ -22,6 +25,7 @@ const productsArray:ProductProps[] = [
         price: 1500
     },
     {
+        id:3,
         title: "Iphone 13",
         desc: "bla-bla",
         type: "phone",
@@ -29,6 +33,7 @@ const productsArray:ProductProps[] = [
         price: 250
     },
     {
+        id:4,
         title: "Iphone 6",
         desc: "bla-bla",
         type: "phone",
@@ -36,6 +41,7 @@ const productsArray:ProductProps[] = [
         price: 60
     },
     {
+        id:5,
         title: "Iphone 5",
         desc: "bla-bla",
         type: "phone",
@@ -43,6 +49,7 @@ const productsArray:ProductProps[] = [
         price: 50
     },
     {
+        id:6,
         title: "Iphone 8",
         desc: "bla-bla",
         type: "phone",
