@@ -7,7 +7,6 @@ import Container from '@mui/material/Container'
 import Menu from 'components/Menu/Menu'
 import CartHeader from 'components/CartHeader/CartHeader'
 import Logo from 'components/Logo/Logo'
-import { green } from '@mui/material/colors'
 import './Header.scss'
 
 type Props = {}
