@@ -11,16 +11,16 @@ type ProductProps = {
 const productsArray:ProductProps[] = [
     {
         id:1,
-        title: "Iphone 14",
+        title: "Мобільний телефон Apple iPhone 14 Pro Max 256GB Space Black",
         desc: "bla-bla",
         type: "phone",
-        capacity: "64",
+        capacity: "256",
         price: 500,
         image:"/images/1.jpg"
     },
     {
         id:2,
-        title: "Iphone 12",
+        title: "Мобільний телефон Apple iPhone 14 128GB Purple (MPV03RX/A)",
         desc: "bla-bla",
         type: "phone",
         capacity: "128",
@@ -29,10 +29,10 @@ const productsArray:ProductProps[] = [
     },
     {
         id:3,
-        title: "Iphone 13",
+        title: "Мобільний телефон Apple iPhone 14 Plus 128GB PRODUCT Red",
         desc: "bla-bla",
         type: "phone",
-        capacity: "32",
+        capacity: "128",
         price: 250,
         image:"/images/3.jpg"
     },
