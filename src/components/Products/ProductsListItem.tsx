@@ -27,6 +27,11 @@ const ProductsListItem = ({
     image,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
+    const [quantuty, setQuantity] = useState<number>(0)
+
+    const addQuantuty = () => {
+        setCount((prevState: number) => quantuty + count)
+    }
 
     const onDecrementClick = () => {
         setCount((prevState: number) => prevState - 1)
@@ -72,7 +77,9 @@ const ProductsListItem = ({
                 </div>
             </CardContent>
             <CardActions className="btns-wrap">
-                <Button variant="outlined">Add to cart</Button>
+                <Button variant="outlined" onClick={addQuantuty}>
+                    {quantuty} Add to cart
+                </Button>
             </CardActions>
         </Card>
     )

@@ -10,9 +10,15 @@ import Logo from 'components/Logo/Logo'
 import { green } from '@mui/material/colors'
 import './Header.scss'
 
-type Props = {}
-const Header = (props: Props) => {
+type Props = {
+    cartData: {
+        totalCount: number
+        totalPrice: number
+    }
+}
+const Header = ({ cartData }: Props) => {
     let appBar = false
+    console.log(cartData)
     return (
         <>
             <AppBar
@@ -32,7 +38,7 @@ const Header = (props: Props) => {
                         </IconButton>
                         <Logo />
                         <Menu />
-                        <CartHeader />
+                        <CartHeader cartData={cartData} />
                     </Toolbar>
                 </Container>
             </AppBar>
