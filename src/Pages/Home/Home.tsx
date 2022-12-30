@@ -2,10 +2,10 @@ import { Typography } from '@mui/material'
 import ProductsList from 'components/Products/ProductsList'
 
 type Props = {
-    addProductToCart: (a: number, b: number) => void
+    addProductToCart: (a:number, b:number) => void
 }
 
-const Home = (addProductToCart: Props) => {
+const Home = ({addProductToCart}: Props) => {
     return (
         <>
             <Typography
@@ -16,10 +16,11 @@ const Home = (addProductToCart: Props) => {
                     marginBottom: '30px',
                 }}
             >
-                List of Products{''}
+                List of Products{' '}
             </Typography>
-            <ProductsList addProductToCart={addProductToCart} />
+            <ProductsList addProductToCart={addProductToCart}/>
         </>
     )
 }
+
 export default Home

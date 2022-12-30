@@ -1,6 +1,3 @@
-import './ProductsListItem.scss'
-import { useState } from 'react'
-
 import {
     Button,
     Card,
@@ -8,6 +5,8 @@ import {
     CardContent,
     TextField,
 } from '@mui/material'
+import { useState } from 'react'
+import './ProductsListItem.scss'
 
 type Props = {
     title: string
@@ -16,7 +15,7 @@ type Props = {
     capacity: string
     price: number
     image: string
-    addProductToCart: (a: number, b: number) => void
+    addProductToCart:(a:number, b:number) => void
 }
 
 const ProductsListItem = ({
@@ -26,15 +25,16 @@ const ProductsListItem = ({
     capacity,
     price,
     image,
-    addProductToCart,
+    addProductToCart
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
-    const onDecrementClick = () => {
-        setCount((prevState: number) => prevState - 1)
-    }
     const onIncrementClick = () => {
         setCount((prevState: number) => prevState + 1)
+    }
+
+    const onDecrementClick = () => {
+        setCount((prevState: number) => prevState - 1)
     }
 
     return (
@@ -49,12 +49,11 @@ const ProductsListItem = ({
                     <span>Type:</span> {type}
                 </div>
                 <div className="product-features">
-                    <span>Capacity:</span> {capacity}
+                    <span>Capacity:</span> {capacity}Gb
                 </div>
                 <div className="product-price">
                     <span>Price:</span> {price}$
                 </div>
-
                 <div className="product-quantity">
                     <Button
                         variant="outlined"
@@ -74,12 +73,7 @@ const ProductsListItem = ({
                 </div>
             </CardContent>
             <CardActions className="btns-wrap">
-                <Button
-                    variant="outlined"
-                    onClick={() => addProductToCart(count, price)}
-                >
-                    Add to cart
-                </Button>
+                <Button variant="outlined" onClick={() => addProductToCart(count, price)}>Add to cart</Button>
             </CardActions>
         </Card>
     )

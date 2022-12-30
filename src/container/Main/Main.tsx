@@ -5,11 +5,18 @@ type Props = {
     addProductToCart: (a: number, b: number) => void
 }
 
-const Main = (addProductToCart: Props) => {
+const Main = ({ addProductToCart }: Props) => {
     return (
-        <Container maxWidth="lg" sx={{ padding: '50px 0' }} component="main">
+        <Container
+            maxWidth="lg"
+            sx={{
+                padding: '50px 0',
+            }}
+            component="main"
+        >
             <Home addProductToCart={addProductToCart} />
         </Container>
     )
 }
+
 export default Main

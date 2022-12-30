@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
-import ProductsListItem from './ProductsListItem'
 import productsArray from 'utils/productsArray'
+import ProductsListItem from './ProductsListItem'
 
 type ProductProps = {
     id: number
@@ -13,26 +13,10 @@ type ProductProps = {
 }
 
 type Props = {
-    addProductToCart: (a: number, b: number) => void
+    addProductToCart: (a:number, b:number) => void
 }
 
-// let products_from_array = productsArray.map(function (i) {
-//     return (
-//         <Grid item xs={12} sm={6} md={4}>
-//             <ProductsListItem
-//                 title={i.title}
-//                 desc={i.desc}
-//                 type={i.type}
-//                 capacity={i.capacity}
-//                 price={i.price}
-//             />
-//         </Grid>
-//     )
-// })
-
-//  {products_from_array}
-
-const ProductsList = (addProductToCart: Props) => {
+const ProductsList = ({addProductToCart}: Props) => {
     return (
         <>
             <Grid

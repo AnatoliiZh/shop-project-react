@@ -1,5 +1,5 @@
 import CssBaseline from '@mui/material/CssBaseline'
-import Header from '../Header/Header'
+import Header from 'container/Header/Header'
 import { StyledEngineProvider } from '@mui/material/styles'
 import Main from 'container/Main/Main'
 import { useState } from 'react'
@@ -17,21 +17,20 @@ const App = (props: Props) => {
         totalPrice: 0,
     })
 
-    const addProductToCart = (a: number, b: number) => {
+    const addProductToCart = (a:number, b:number) => {
         setCartData({
-            totalCount: cartData.totalCount + a,
-            totalPrice: cartData.totalPrice + a * b,
+            totalCount: cartData.totalCount + a ,
+        totalPrice: cartData.totalPrice + a*b,
         })
     }
+    
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header cartData={cartData} />
-            <button onClick={() => addProductToCart(5, 500)}>
-                Add to cart
-            </button>
-            <Main addProductToCart={addProductToCart} />
+            {/* <button onClick={() => addProductToCart(5,500)}></button> */}
+            <Main addProductToCart={addProductToCart}/>
         </StyledEngineProvider>
     )
 }
