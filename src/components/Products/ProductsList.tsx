@@ -12,7 +12,9 @@ type ProductProps = {
     image: string
 }
 
-type Props = {}
+type Props = {
+    addProductToCart: (a: number, b: number) => void
+}
 
 // let products_from_array = productsArray.map(function (i) {
 //     return (
@@ -30,7 +32,7 @@ type Props = {}
 
 //  {products_from_array}
 
-const ProductsList = (props: Props) => {
+const ProductsList = (addProductToCart: Props) => {
     return (
         <>
             <Grid
@@ -58,6 +60,7 @@ const ProductsList = (props: Props) => {
                                 capacity={capacity}
                                 price={price}
                                 image={image}
+                                addProductToCart={addProductToCart}
                             />
                         </Grid>
                     )
