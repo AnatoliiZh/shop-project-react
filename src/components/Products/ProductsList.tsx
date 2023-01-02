@@ -13,10 +13,10 @@ type ProductProps = {
 }
 
 type Props = {
-    addProductToCart: (a:number, b:number) => void
+    addProductToCart: (count: number, price: number) => void
 }
 
-const ProductsList = ({addProductToCart}: Props) => {
+const ProductsList = ({ addProductToCart }: Props) => {
     return (
         <>
             <Grid
