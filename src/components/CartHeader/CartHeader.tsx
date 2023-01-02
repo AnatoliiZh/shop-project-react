@@ -1,4 +1,5 @@
 import './CartHeader.css'
+import productsArray from 'utils/productsArray'
 
 type Props = {
     productsInСart: {
@@ -6,15 +7,24 @@ type Props = {
     }
 }
 
+type ProductProps = {
+    id: number
+    title: string
+    desc: string
+    type: string
+    capacity: string
+    price: number
+    image: string
+}
+
 const CartHeader = ({ productsInСart }: Props) => {
-    console.log(Object.keys(productsInСart))
+    console.log(productsArray[0].title)
     return (
         <div>
-            {/* <div>{cartData.totalCount}</div>
-            <div>$ {cartData.totalPrice}</div> */}
             {Object.keys(productsInСart).map((productId) => (
                 <div key={productId}>
-                    {productId} : {productsInСart[parseInt(productId)]}
+                    {productsArray[parseInt(productId) - 1].title} :{' '}
+                    {productsInСart[parseInt(productId)]}
                 </div>
             ))}
         </div>
