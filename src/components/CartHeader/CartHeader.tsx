@@ -1,17 +1,22 @@
 import './CartHeader.css'
 
 type Props = {
-    cartData: {
-        totalCount: number
-        totalPrice: number
+    productsInСart: {
+        [id: number]: number
     }
 }
 
-const CartHeader = ({ cartData }: Props) => {
+const CartHeader = ({ productsInСart }: Props) => {
+    console.log(Object.keys(productsInСart))
     return (
         <div>
-            <div>{cartData.totalCount}</div>
-            <div>$ {cartData.totalPrice}</div>
+            {/* <div>{cartData.totalCount}</div>
+            <div>$ {cartData.totalPrice}</div> */}
+            {Object.keys(productsInСart).map((productId) => (
+                <div>
+                    {productId} : {productsInСart[parseInt(productId)]}
+                </div>
+            ))}
         </div>
     )
 }
