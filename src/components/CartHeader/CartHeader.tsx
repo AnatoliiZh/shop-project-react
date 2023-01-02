@@ -13,7 +13,7 @@ const CartHeader = ({ productsInСart }: Props) => {
             {/* <div>{cartData.totalCount}</div>
             <div>$ {cartData.totalPrice}</div> */}
             {Object.keys(productsInСart).map((productId) => (
-                <div>
+                <div key={productId}>
                     {productId} : {productsInСart[parseInt(productId)]}
                 </div>
             ))}
