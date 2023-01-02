@@ -7,16 +7,6 @@ type Props = {
     }
 }
 
-type ProductProps = {
-    id: number
-    title: string
-    desc: string
-    type: string
-    capacity: string
-    price: number
-    image: string
-}
-
 const CartHeader = ({ productsInСart }: Props) => {
     console.log(productsArray[0].title)
     return (
