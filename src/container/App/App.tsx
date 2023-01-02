@@ -17,7 +17,7 @@ const App = () => {
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInСart) => ({
             ...prevState,
-            [id]: Number.isNaN(prevState[id]) ? count : prevState[id] + count,
+            [id]: isNaN(prevState[id]) ? count : prevState[id] + count,
         }))
     }
 
