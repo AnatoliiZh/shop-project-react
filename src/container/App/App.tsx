@@ -23,7 +23,10 @@ const App = () => {
             <CssBaseline />
             <Header productsInСart={productsInСart} />
             {/* <button onClick={() => addProductToCart(1, 1)}>Add to cart</button> */}
-            <Main addProductToCart={addProductToCart} />
+            <Main
+                addProductToCart={addProductToCart}
+                productsInСart={productsInСart}
+            />
         </StyledEngineProvider>
     )
 }
