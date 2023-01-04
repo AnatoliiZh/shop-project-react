@@ -19,12 +19,25 @@ const CartHeader = ({
     console.log(productsArray[0].title)
     return (
         <div>
-            {Object.keys(productsInСart).map((productId) => (
-                <div key={productId}>
-                    {productsObject[parseInt(productId)].title} :{' '}
-                    {productsInСart[parseInt(productId)]}
-                </div>
-            ))}
+            <div>
+                {Object.keys(productsInСart).map((productId) => (
+                    <div key={productId}>
+                        {productsObject[parseInt(productId)].title} :{' '}
+                        {productsInСart[parseInt(productId)]}
+                    </div>
+                ))}
+            </div>
+            <div>
+                Total:{' '}
+                {Object.keys(productsInСart).reduce(
+                    (total, productId) =>
+                        total +
+                        productsInСart[parseInt(productId)] *
+                            productsObject[parseInt(productId)].price,
+                    0
+                )}
+                $
+            </div>
         </div>
     )
 }
