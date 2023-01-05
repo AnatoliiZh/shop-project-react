@@ -17,6 +17,7 @@ const CartPage = ({
     productsInСart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
+    // console.log(Object.keys(productsInСart).length)
     return (
         <div>
             <h2>Корзина</h2>
@@ -24,8 +25,8 @@ const CartPage = ({
                 {Object.keys(productsInСart).map((productId) => (
                     <li key={productId}>
                         {productsObject[parseInt(productId)].title} -{' '}
-                        {productsInСart[parseInt(productId)]} шт. по{' '}
-                        {productsObject[parseInt(productId)].price} грн.
+                        {productsInСart[parseInt(productId)]} items for{' '}
+                        {productsObject[parseInt(productId)].price} $
                     </li>
                 ))}
             </ol>

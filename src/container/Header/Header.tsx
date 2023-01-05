@@ -17,7 +17,7 @@ type Props = {
 }
 
 const Header = ({ productsInСart }: Props) => {
-    console.log(productsInСart)
+    // console.log(productsInСart)
     let appBar = false
     return (
         <>

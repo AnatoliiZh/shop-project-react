@@ -16,7 +16,7 @@ const CartHeader = ({
     productsInСart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
-    console.log(productsArray[0].title)
+    // console.log(productsArray[0].title)
     return (
         <div>
             <div>
