@@ -1,4 +1,6 @@
 import React from 'react'
+import CartProductList from 'components/CartProductList/CartProductList'
+import CartTotal from 'components/CartTotal/CartTotal'
 import productsArray, {
     getProductsObject,
     ProductProps,
@@ -21,26 +23,14 @@ const CartPage = ({
     return (
         <div>
             <h2>Корзина</h2>
-            <ol>
-                {Object.keys(productsInСart).map((productId) => (
-                    <li key={productId}>
-                        {productsObject[parseInt(productId)].title} -{' '}
-                        {productsInСart[parseInt(productId)]} items for{' '}
-                        {productsObject[parseInt(productId)].price} $
-                    </li>
-                ))}
-            </ol>
-            <div>
-                Total:{' '}
-                {Object.keys(productsInСart).reduce(
-                    (total, productId) =>
-                        total +
-                        productsInСart[parseInt(productId)] *
-                            productsObject[parseInt(productId)].price,
-                    0
-                )}
-                $
-            </div>
+            <CartProductList
+                productsInСart={productsInСart}
+                productsObject={productsObject}
+            />
+            <CartTotal
+                productsInСart={productsInСart}
+                productsObject={productsObject}
+            />
         </div>
     )
 }
