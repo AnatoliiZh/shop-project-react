@@ -9,12 +9,14 @@ type Props = {
     productCount: number
     product: ProductProps
     removeProductFromCart: (id: number) => void
+    changeProductToCart: (id: number, changeCount: number) => void
 }
 
 const CartProductListItemExtended = ({
     productCount,
     product,
     removeProductFromCart,
+    changeProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(productCount)
 
@@ -52,6 +54,12 @@ const CartProductListItemExtended = ({
                             +
                         </Button>
                     </div>
+                    <Button
+                        variant="outlined"
+                        onClick={() => changeProductToCart(product.id, count)}
+                    >
+                        Change cart
+                    </Button>
                     <Button
                         variant="outlined"
                         onClick={() => removeProductFromCart(product.id)}

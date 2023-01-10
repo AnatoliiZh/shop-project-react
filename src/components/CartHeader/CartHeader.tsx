@@ -12,11 +12,13 @@ type Props = {
     productsObject?: {
         [id: number]: ProductProps
     }
+    changeProductToCart: (id: number, changeCount: number) => void
 }
 
 const CartHeader = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
+    changeProductToCart,
 }: Props) => {
     // console.log(productsArray[0].title)
     return (
@@ -24,6 +26,7 @@ const CartHeader = ({
             <CartProductList
                 productsInCart={productsInCart}
                 productsObject={productsObject}
+                changeProductToCart={changeProductToCart}
             />
             <CartTotal
                 productsInCart={productsInCart}
