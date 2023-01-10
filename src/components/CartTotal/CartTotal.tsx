@@ -5,7 +5,7 @@ import productsArray, {
 } from 'utils/productsArray'
 
 type Props = {
-    productsInСart: {
+    productsInCart: {
         [id: number]: number
     }
     productsObject?: {
@@ -14,16 +14,16 @@ type Props = {
 }
 
 const CartTotal = ({
-    productsInСart,
+    productsInCart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
     return (
         <div>
             Total:{' '}
-            {Object.keys(productsInСart).reduce(
+            {Object.keys(productsInCart).reduce(
                 (total, productId) =>
                     total +
-                    productsInСart[parseInt(productId)] *
+                    productsInCart[parseInt(productId)] *
                         productsObject[parseInt(productId)].price,
                 0
             )}

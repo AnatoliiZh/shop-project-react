@@ -8,17 +8,17 @@ import { Routes, Route } from 'react-router-dom'
 
 type Props = {
     addProductToCart: (id: number, count: number) => void
-    productsInСart: ProductsInСart
+    productsInCart: ProductsInCart
     removeProductFromCart: (id: number) => void
 }
 
-type ProductsInСart = {
+type ProductsInCart = {
     [id: number]: number
 }
 
 const Main = ({
     addProductToCart,
-    productsInСart,
+    productsInCart,
     removeProductFromCart,
 }: Props) => {
     return (
@@ -41,7 +41,7 @@ const Main = ({
                     path="cart"
                     element={
                         <CartPage
-                            productsInСart={productsInСart}
+                            productsInCart={productsInCart}
                             removeProductFromCart={removeProductFromCart}
                         />
                     }

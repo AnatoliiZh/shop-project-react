@@ -6,7 +6,7 @@ import CartProductList from 'components/CartProductList/CartProductList'
 import CartTotal from 'components/CartTotal/CartTotal'
 
 type Props = {
-    productsInСart: {
+    productsInCart: {
         [id: number]: number
     }
     productsObject?: {
@@ -15,18 +15,18 @@ type Props = {
 }
 
 const CartHeader = ({
-    productsInСart,
+    productsInCart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
     // console.log(productsArray[0].title)
     return (
         <div>
             <CartProductList
-                productsInСart={productsInСart}
+                productsInCart={productsInCart}
                 productsObject={productsObject}
             />
             <CartTotal
-                productsInСart={productsInСart}
+                productsInCart={productsInCart}
                 productsObject={productsObject}
             />
         </div>

@@ -5,15 +5,15 @@ import Main from 'container/Main/Main'
 import { useState } from 'react'
 import { omit } from 'lodash'
 
-type ProductsInСart = {
+type ProductsInCart = {
     [id: number]: number
 }
 
 const App = () => {
-    const [productsInСart, setProductsInCart] = useState<ProductsInСart>({})
+    const [productsInCart, setProductsInCart] = useState<ProductsInCart>({})
 
     const addProductToCart = (id: number, count: number) => {
-        setProductsInCart((prevState: ProductsInСart) => ({
+        setProductsInCart((prevState: ProductsInCart) => ({
             ...prevState,
             [id]: (prevState[id] || 0) + count,
         }))
@@ -21,7 +21,7 @@ const App = () => {
 
     const removeProductFromCart = (id: number) => {
         setProductsInCart(
-            (prevState: ProductsInСart) => omit(prevState, [id])
+            (prevState: ProductsInCart) => omit(prevState, [id])
             // let prevProductsInCart = { ...prevState }
             // delete prevProductsInCart[id]
             // return prevProductsInCart
@@ -31,12 +31,12 @@ const App = () => {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header productsInСart={productsInСart} />
+            <Header productsInCart={productsInCart} />
             {/* <button onClick={() => removeProductFromCart(1)}>Delete</button> */}
             {/* <button onClick={() => addProductToCart(1, 1)}>Add to cart</button> */}
             <Main
                 addProductToCart={addProductToCart}
-                productsInСart={productsInСart}
+                productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
             />
         </StyledEngineProvider>

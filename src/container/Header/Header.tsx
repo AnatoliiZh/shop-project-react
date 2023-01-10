@@ -11,13 +11,13 @@ import Logo from 'components/Logo/Logo'
 import './Header.scss'
 
 type Props = {
-    productsInСart: {
+    productsInCart: {
         [id: number]: number
     }
 }
 
-const Header = ({ productsInСart }: Props) => {
-    // console.log(productsInСart)
+const Header = ({ productsInCart }: Props) => {
+    // console.log(productsInCart)
     let appBar = false
     return (
         <>
@@ -38,7 +38,7 @@ const Header = ({ productsInСart }: Props) => {
                         </IconButton>
                         <Logo />
                         <Menu />
-                        <CartHeader productsInСart={productsInСart} />
+                        <CartHeader productsInCart={productsInCart} />
                     </Toolbar>
                 </Container>
             </AppBar>

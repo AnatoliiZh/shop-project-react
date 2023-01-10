@@ -9,7 +9,7 @@ import CartProductListItemExtended from 'components/CartProductList/CartProductL
 import { Grid } from '@mui/material'
 
 type Props = {
-    productsInСart: {
+    productsInCart: {
         [id: number]: number
     }
     productsObject?: {
@@ -19,17 +19,17 @@ type Props = {
 }
 
 const CartPage = ({
-    productsInСart,
+    productsInCart,
     productsObject = getProductsObject(productsArray),
     removeProductFromCart,
 }: Props) => {
-    // console.log(Object.keys(productsInСart).length)
+    // console.log(Object.keys(productsInCart).length)
     return (
         <div>
             <h2>Cart</h2>
             <Grid container spacing={2}>
                 <CartProductList
-                    productsInСart={productsInСart}
+                    productsInCart={productsInCart}
                     productsObject={productsObject}
                     CartItem={CartProductListItemExtended}
                     removeProductFromCart={removeProductFromCart}
@@ -37,7 +37,7 @@ const CartPage = ({
             </Grid>
 
             <CartTotal
-                productsInСart={productsInСart}
+                productsInCart={productsInCart}
                 productsObject={productsObject}
             />
         </div>

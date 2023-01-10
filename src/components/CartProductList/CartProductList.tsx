@@ -6,7 +6,7 @@ import productsArray, {
 import CartProductListItem from './CartProductListItem'
 
 type Props = {
-    productsInСart: {
+    productsInCart: {
         [id: number]: number
     }
     productsObject?: {
@@ -17,24 +17,24 @@ type Props = {
 }
 
 const CartProductList = ({
-    productsInСart,
+    productsInCart,
     productsObject = getProductsObject(productsArray),
     CartItem = CartProductListItem,
     removeProductFromCart,
 }: Props) => {
     return (
         <>
-            {Object.keys(productsInСart).map((productId) => (
+            {Object.keys(productsInCart).map((productId) => (
                 <CartItem
                     key={productId}
                     product={productsObject[parseInt(productId)]}
-                    productCount={productsInСart[parseInt(productId)]}
+                    productCount={productsInCart[parseInt(productId)]}
                     removeProductFromCart={removeProductFromCart}
                 />
 
                 // <li key={productId}>
                 //     {productsObject[parseInt(productId)].title} -{' '}
-                //     {productsInСart[parseInt(productId)]} items for{' '}
+                //     {productsInCart[parseInt(productId)]} items for{' '}
                 //     {productsObject[parseInt(productId)].price} $
                 // </li>
             ))}
