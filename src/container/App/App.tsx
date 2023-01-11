@@ -1,16 +1,26 @@
 import CssBaseline from '@mui/material/CssBaseline'
+import { useState } from 'react'
 import Header from 'container/Header/Header'
 import { StyledEngineProvider } from '@mui/material/styles'
 import Main from 'container/Main/Main'
-import { useState } from 'react'
 import { omit } from 'lodash'
 
 type ProductsInCart = {
     [id: number]: number
 }
 
+type ProductsLikeState = {
+    [id: number]: boolean
+}
+
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCart>({})
+
+    const [productsLikeState, setProductsLikeState] =
+        useState<ProductsLikeState>({
+            1: true,
+            2: true,
+        })
 
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCart) => ({
