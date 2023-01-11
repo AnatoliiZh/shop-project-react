@@ -19,10 +19,17 @@ const App = () => {
         }))
     }
 
-    const changeProductToCart = (id: number, changeCount: number) => {
+    // const changeProductToCart = (id: number, changeCount: number) => {
+    //     setProductsInCart((prevState: ProductsInCart) => ({
+    //         ...prevState,
+    //         [id]: changeCount,
+    //     }))
+    // }
+
+    const changeProductQuantity = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCart) => ({
             ...prevState,
-            [id]: changeCount,
+            [id]: count,
         }))
     }
 
@@ -38,17 +45,14 @@ const App = () => {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header
-                productsInCart={productsInCart}
-                changeProductToCart={changeProductToCart}
-            />
+            <Header productsInCart={productsInCart} />
             {/* <button onClick={() => removeProductFromCart(1)}>Delete</button> */}
             {/* <button onClick={() => addProductToCart(1, 1)}>Add to cart</button> */}
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
-                changeProductToCart={changeProductToCart}
+                changeProductQuantity={changeProductQuantity}
             />
         </StyledEngineProvider>
     )

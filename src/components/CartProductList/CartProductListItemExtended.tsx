@@ -4,19 +4,20 @@ import React from 'react'
 import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { useState } from 'react'
+import Quantity from 'components/Quantity/Quantity'
 
 type Props = {
     productCount: number
     product: ProductProps
     removeProductFromCart: (id: number) => void
-    changeProductToCart: (id: number, changeCount: number) => void
+    changeProductQuantity: (id: number, changeCount: number) => void
 }
 
 const CartProductListItemExtended = ({
     productCount,
     product,
     removeProductFromCart,
-    changeProductToCart,
+    changeProductQuantity,
 }: Props) => {
     const [count, setCount] = useState<number>(productCount)
 
@@ -37,29 +38,27 @@ const CartProductListItemExtended = ({
                     <div>{product.title}</div>
                     <p>Price for one item: {product.price}</p>
                     {/* <p>Count: {productCount}</p> */}
-                    <div className="product-quantity">
-                        <Button
-                            variant="outlined"
-                            onClick={onDecrementClick}
-                            disabled={count <= 1}
-                        >
-                            -
-                        </Button>
-                        <TextField value={count} size="small" />
-                        <Button
-                            variant="outlined"
-                            onClick={onIncrementClick}
-                            disabled={count >= 10}
-                        >
-                            +
-                        </Button>
-                    </div>
-                    <Button
+                    <Quantity
+                        count={productCount}
+                        onDecrementClick={() =>
+                            productCount <= 1
+                                ? removeProductFromCart(product.id)
+                                : changeProductQuantity(
+                                      product.id,
+                                      productCount - 1
+                                  )
+                        }
+                        onIncrementClick={() =>
+                            changeProductQuantity(product.id, productCount + 1)
+                        }
+                        min={0}
+                    ></Quantity>
+                    {/* <Button
                         variant="outlined"
                         onClick={() => changeProductToCart(product.id, count)}
                     >
                         Change cart
-                    </Button>
+                    </Button> */}
                     <Button
                         variant="outlined"
                         onClick={() => removeProductFromCart(product.id)}
