@@ -2,11 +2,17 @@ import { Typography } from '@mui/material'
 import ProductsList from 'components/Products/ProductsList'
 import Reviews from 'components/Reviews/Reviews'
 
-type Props = {
-    addProductToCart: (id: number, count: number) => void
+type ProductsLikeState = {
+    [id: number]: boolean
 }
 
-const Home = ({ addProductToCart }: Props) => {
+type Props = {
+    addProductToCart: (id: number, count: number) => void
+    changeLike: (id: number, isLiked: boolean) => void
+    productsLikeState: ProductsLikeState
+}
+
+const Home = ({ addProductToCart, changeLike, productsLikeState }: Props) => {
     return (
         <>
             <Typography
@@ -19,7 +25,11 @@ const Home = ({ addProductToCart }: Props) => {
             >
                 List of Products{' '}
             </Typography>
-            <ProductsList addProductToCart={addProductToCart} />
+            <ProductsList
+                addProductToCart={addProductToCart}
+                changeLike={changeLike}
+                productsLikeState={productsLikeState}
+            />
             <Reviews />
         </>
     )

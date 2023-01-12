@@ -22,6 +22,13 @@ const App = () => {
             2: true,
         })
 
+    const changeLike = (id: number, like: boolean) => {
+        setProductsLikeState((prevState: ProductsLikeState) => ({
+            ...prevState,
+            [id]: !like,
+        }))
+    }
+
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCart) => ({
             ...prevState,
@@ -63,6 +70,8 @@ const App = () => {
                 productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
                 changeProductQuantity={changeProductQuantity}
+                productsLikeState={productsLikeState}
+                changeLike={changeLike}
             />
         </StyledEngineProvider>
     )

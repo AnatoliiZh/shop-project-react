@@ -12,11 +12,21 @@ type ProductProps = {
     image: string
 }
 
-type Props = {
-    addProductToCart: (id: number, count: number) => void
+type ProductsLikeState = {
+    [id: number]: boolean
 }
 
-const ProductsList = ({ addProductToCart }: Props) => {
+type Props = {
+    addProductToCart: (id: number, count: number) => void
+    changeLike: (id: number, isLiked: boolean) => void
+    productsLikeState: ProductsLikeState
+}
+
+const ProductsList = ({
+    addProductToCart,
+    changeLike,
+    productsLikeState,
+}: Props) => {
     return (
         <>
             <Grid
@@ -46,6 +56,8 @@ const ProductsList = ({ addProductToCart }: Props) => {
                                 price={price}
                                 image={image}
                                 addProductToCart={addProductToCart}
+                                changeLike={changeLike}
+                                productsLikeState={productsLikeState}
                             />
                         </Grid>
                     )
