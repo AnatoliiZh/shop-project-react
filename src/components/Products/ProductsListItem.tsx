@@ -19,7 +19,7 @@ type Props = {
     image: string
     addProductToCart: (id: number, count: number) => void //count: number, price: number - прокинутые от App
     isLiked?: boolean
-    changeLike: (id: number, isLiked: boolean) => void
+    changeLike: (id: number, like: boolean) => void
     productsLikeState: ProductsLikeState
 }
 
@@ -32,7 +32,7 @@ const ProductsListItem = ({
     price,
     image,
     addProductToCart,
-    isLiked = false,
+    // isLiked = false,
     changeLike,
     productsLikeState,
 }: Props) => {

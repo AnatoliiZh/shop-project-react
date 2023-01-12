@@ -20,7 +20,7 @@ type Props = {
     removeProductFromCart: (id: number) => void
     changeProductQuantity: (id: number, changeCount: number) => void
     productsLikeState: ProductsLikeState
-    changeLike: (id: number, isLiked: boolean) => void
+    changeLike: (id: number, like: boolean) => void
 }
 
 const Main = ({

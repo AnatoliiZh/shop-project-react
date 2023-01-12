@@ -8,7 +8,7 @@ type ProductsLikeState = {
 
 type Props = {
     addProductToCart: (id: number, count: number) => void
-    changeLike: (id: number, isLiked: boolean) => void
+    changeLike: (id: number, like: boolean) => void
     productsLikeState: ProductsLikeState
 }
 
