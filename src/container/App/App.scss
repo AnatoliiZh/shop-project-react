@@ -1,5 +1,9 @@
 .task-1{
     text-align: center;
+    .box{
+        display: flex;
+        justify-content: center;
+    }
 }
 button{
     margin: 20px;
