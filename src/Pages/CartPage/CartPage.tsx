@@ -6,7 +6,7 @@ import productsArray, {
     ProductProps,
 } from 'utils/productsArray'
 import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
-import { Grid } from '@mui/material'
+import { Button, Grid } from '@mui/material'
 
 type Props = {
     productsInCart: {
@@ -26,7 +26,9 @@ const CartPage = ({
     // console.log(Object.keys(productsInCart).length)
     return (
         <div>
-            <h2>Cart</h2>
+            <h2>Our shop page</h2>
+            <Button>USD</Button>
+            <Button>UAH</Button>
             <Grid container spacing={2}>
                 <CartProductList
                     productsInCart={productsInCart}
