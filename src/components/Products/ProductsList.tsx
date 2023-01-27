@@ -5,11 +5,9 @@ import ProductsListItem from './ProductsListItem'
 type ProductProps = {
     id: number
     title: string
-    desc: string
-    type: string
-    capacity: string
+    desc: string   
     price: number
-    image: string
+   
 }
 
 type Props = {
@@ -30,21 +28,15 @@ const ProductsList = ({ addProductToCart }: Props) => {
                     ({
                         id,
                         title,
-                        desc,
-                        type,
-                        capacity,
-                        price,
-                        image,
+                        desc,                        
+                        price,                        
                     }: ProductProps) => (
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             <ProductsListItem
                                 id={id}
                                 title={title}
-                                desc={desc}
-                                type={type}
-                                capacity={capacity}
-                                price={price}
-                                image={image}
+                                desc={desc}                                
+                                price={price}                               
                                 addProductToCart={addProductToCart}
                             />
                         </Grid>

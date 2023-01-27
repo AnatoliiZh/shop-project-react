@@ -11,22 +11,16 @@ import './ProductsListItem.scss'
 type Props = {
     id: number
     title: string
-    desc: string
-    type: string
-    capacity: string
-    price: number
-    image: string
+    desc: string    
+    price: number   
     addProductToCart: (id: number, count: number) => void //count: number, price: number - прокинутые от App
 }
 
 const ProductsListItem = ({
     id,
     title,
-    desc,
-    type,
-    capacity,
-    price,
-    image,
+    desc,    
+    price,    
     addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
@@ -42,17 +36,17 @@ const ProductsListItem = ({
     return (
         <Card className="product" variant="outlined">
             <CardContent>
-                <div className="product-img">
+                {/* <div className="product-img">
                     <img src={image} alt="" />
-                </div>
+                </div> */}
                 <div className="product-title">{title}</div>
                 <div className="product-decs">{desc}</div>
-                <div className="product-features">
+                {/* <div className="product-features">
                     <span>Type:</span> {type}
                 </div>
                 <div className="product-features">
                     <span>Capacity:</span> {capacity}Gb
-                </div>
+                </div> */}
                 <div className="product-price">
                     <span>Price:</span> {price}$
                 </div>

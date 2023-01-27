@@ -14,6 +14,7 @@ type Props = {
     }
     CartItem?: any
     removeProductFromCart?: (id: number) => void
+    indexCurrency:number
 }
 
 const CartProductList = ({
@@ -21,6 +22,7 @@ const CartProductList = ({
     productsObject = getProductsObject(productsArray),
     CartItem = CartProductListItem,
     removeProductFromCart,
+    indexCurrency
 }: Props) => {
     return (
         <>
@@ -30,6 +32,7 @@ const CartProductList = ({
                     product={productsObject[parseInt(productId)]}
                     productCount={productsInCart[parseInt(productId)]}
                     removeProductFromCart={removeProductFromCart}
+                    indexCurrency={indexCurrency}
                 />
 
                 // <li key={productId}>
