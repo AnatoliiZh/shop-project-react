@@ -5,11 +5,18 @@ import ShippingPage from 'Pages/ShippingPage/ShippingPage'
 import PaymentPage from 'Pages/PaymentPage/PaymentPage'
 import Home from 'Pages/Home/Home'
 import { Routes, Route } from 'react-router-dom'
+import productsArray, {
+    getProductsObject,
+    ProductProps,
+} from 'utils/productsArray'
 
 type Props = {
     addProductToCart: (id: number, count: number) => void
     productsInCart: ProductsInCart
     removeProductFromCart: (id: number) => void
+     productsObject?: {
+        [id: number]: ProductProps
+    }
 }
 
 type ProductsInCart = {
@@ -20,6 +27,8 @@ const Main = ({
     addProductToCart,
     productsInCart,
     removeProductFromCart,
+    productsObject = getProductsObject(productsArray)
+    
 }: Props) => {
     return (
         <Container
@@ -32,7 +41,8 @@ const Main = ({
             <Routes>
                 <Route
                     path="/"
-                    element={<Home addProductToCart={addProductToCart} />}
+                    element={<Home addProductToCart={addProductToCart} productsInCart={productsInCart}
+                    productsObject={productsObject}/>}
                 />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="shipping" element={<ShippingPage />} />
