@@ -1,10 +1,12 @@
-import { Grid } from '@mui/material'
+import React, {useState} from 'react'
+import { Button, Grid } from '@mui/material'
 import CartTotal from 'components/CartTotal/CartTotal'
 import productsArray, {
     getProductsObject,
     
 } from 'utils/productsArray'
 import ProductsListItem from './ProductsListItem'
+
 
 type ProductProps = {
     id: number
@@ -27,8 +29,22 @@ type Props = {
 }
 
 const ProductsList = ({ addProductToCart, productsInCart,productsObject = getProductsObject(productsArray) }: Props) => {
-    return (
+    const [indexCurrency, setIdCurrency] = useState(0)
+    return (        
         <>
+   
+            {/* <Container className="container" maxWidth="md"> */}
+            {/* <h1>Our shop page</h1> */}
+            <div className='btn-box'>
+                <Button variant="outlined"
+                            onClick={() => setIdCurrency(0)}>USD</Button>
+                <Button variant="outlined"
+                            onClick={() => setIdCurrency(1)}>EUR</Button>            
+                <Button variant="outlined"
+                            onClick={() => setIdCurrency(2)}>UAH</Button>
+                <Button variant="outlined"
+                            onClick={() => setIdCurrency(3)}>PLN</Button>            
+            </div>
             <Grid
                 container
                 direction="row"
