@@ -29,8 +29,8 @@ const CartTotal = ({
                     productsInCart[parseInt(productId)] *
                         productsObject[parseInt(productId)].price * currencyArray[indexCurrency].course,
                 0
-            )}
-            $
+            ).toFixed(2)}
+             {` ${currencyArray[indexCurrency].currency}`}
         </div>
     )
 }
