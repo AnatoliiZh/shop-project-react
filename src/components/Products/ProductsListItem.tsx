@@ -4,10 +4,7 @@ import { useState } from 'react'
 import './ProductsListItem.scss'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-
-type ProductsLikeState = {
-    [id: number]: boolean
-}
+import { useAppSelector } from 'redux/hooks'
 
 type Props = {
     id: number
@@ -18,9 +15,6 @@ type Props = {
     price: number
     image: string
     addProductToCart: (id: number, count: number) => void //count: number, price: number - прокинутые от App
-    isLiked?: boolean
-    changeLike: (id: number, like: boolean) => void
-    productsLikeState: ProductsLikeState
 }
 
 const ProductsListItem = ({
@@ -32,9 +26,6 @@ const ProductsListItem = ({
     price,
     image,
     addProductToCart,
-    // isLiked = false,
-    changeLike,
-    productsLikeState,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
@@ -45,19 +36,13 @@ const ProductsListItem = ({
     const onDecrementClick = () => {
         setCount((prevState: number) => prevState - 1)
     }
+    const isLiked = useAppSelector((state) => state.likeProducts[id])
 
     return (
         <Card className="product" variant="outlined">
             <CardContent>
-                <Button
-                    variant="outlined"                    
-                    onClick={() => changeLike(id, productsLikeState[id])}
-                >
-                    {productsLikeState[id] ? (
-                        <FavoriteIcon />
-                    ) : (
-                        <FavoriteBorderIcon />
-                    )}
+                <Button variant="outlined">
+                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
                 <div className="product-img">
                     <img src={image} alt="" />

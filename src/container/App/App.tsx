@@ -9,25 +9,8 @@ type ProductsInCart = {
     [id: number]: number
 }
 
-type ProductsLikeState = {
-    [id: number]: boolean
-}
-
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCart>({})
-
-    const [productsLikeState, setProductsLikeState] =
-        useState<ProductsLikeState>({
-            1: true,
-            2: true,
-        })
-
-    const changeLike = (id: number, like: boolean) => {
-        setProductsLikeState((prevState: ProductsLikeState) => ({
-            ...prevState,
-            [id]: !like,
-        }))
-    }
 
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCart) => ({
@@ -35,13 +18,6 @@ const App = () => {
             [id]: (prevState[id] || 0) + count,
         }))
     }
-
-    // const changeProductToCart = (id: number, changeCount: number) => {
-    //     setProductsInCart((prevState: ProductsInCart) => ({
-    //         ...prevState,
-    //         [id]: changeCount,
-    //     }))
-    // }
 
     const changeProductQuantity = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCart) => ({
@@ -51,27 +27,18 @@ const App = () => {
     }
 
     const removeProductFromCart = (id: number) => {
-        setProductsInCart(
-            (prevState: ProductsInCart) => omit(prevState, [id])
-            // let prevProductsInCart = { ...prevState }
-            // delete prevProductsInCart[id]
-            // return prevProductsInCart
-        )
+        setProductsInCart((prevState: ProductsInCart) => omit(prevState, [id]))
     }
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            {/* <button onClick={() => removeProductFromCart(1)}>Delete</button> */}
-            {/* <button onClick={() => addProductToCart(1, 1)}>Add to cart</button> */}
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
                 changeProductQuantity={changeProductQuantity}
-                productsLikeState={productsLikeState}
-                changeLike={changeLike}
             />
         </StyledEngineProvider>
     )

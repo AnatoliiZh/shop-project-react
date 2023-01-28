@@ -19,15 +19,6 @@ const CartProductListItemExtended = ({
     removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
-    // const [count, setCount] = useState<number>(productCount)
-
-    // const onIncrementClick = () => {
-    //     setCount((prevState: number) => prevState + 1)
-    // }
-
-    // const onDecrementClick = () => {
-    //     setCount((prevState: number) => prevState - 1)
-    // }
     return (
         <Grid item xs={12} sm={4}>
             <Card>
@@ -53,12 +44,6 @@ const CartProductListItemExtended = ({
                         }
                         min={0}
                     ></Quantity>
-                    {/* <Button
-                        variant="outlined"
-                        onClick={() => changeProductToCart(product.id, count)}
-                    >
-                        Change cart
-                    </Button> */}
                     <Button
                         variant="outlined"
                         onClick={() => removeProductFromCart(product.id)}

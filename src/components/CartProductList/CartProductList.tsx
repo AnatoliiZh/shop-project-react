@@ -34,12 +34,6 @@ const CartProductList = ({
                     removeProductFromCart={removeProductFromCart}
                     changeProductQuantity={changeProductQuantity}
                 />
-
-                // <li key={productId}>
-                //     {productsObject[parseInt(productId)].title} -{' '}
-                //     {productsInCart[parseInt(productId)]} items for{' '}
-                //     {productsObject[parseInt(productId)].price} $
-                // </li>
             ))}
         </>
     )
