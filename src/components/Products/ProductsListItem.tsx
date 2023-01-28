@@ -1,12 +1,15 @@
+// import { useState } from 'react'
 import {
     Button,
     Card,
     CardActions,
     CardContent,
-    TextField,
+    // TextField,
 } from '@mui/material'
-import { useState } from 'react'
+import currencyArray from 'utils/currencyArray'
+
 import './ProductsListItem.scss'
+
 
 type Props = {
     id: number
@@ -17,27 +20,30 @@ type Props = {
     price: number
     image: string
     addProductToCart: (id: number, count: number) => void //count: number, price: number - прокинутые от App
+    indexCurrency:number
 }
 
 const ProductsListItem = ({
     id,
     title,
     desc,
-    type,
-    capacity,
+    // type,
+    // capacity,
     price,
-    image,
+    // image,
     addProductToCart,
+    indexCurrency
 }: Props) => {
-    const [count, setCount] = useState<number>(1)
+    // const [count, setCount] = useState<number>(1)
+    let count = 1
 
-    const onIncrementClick = () => {
-        setCount((prevState: number) => prevState + 1)
-    }
+    // const onIncrementClick = () => {
+    //     setCount((prevState: number) => prevState + 1)
+    // }
 
-    const onDecrementClick = () => {
-        setCount((prevState: number) => prevState - 1)
-    }
+    // const onDecrementClick = () => {
+    //     setCount((prevState: number) => prevState - 1)
+    // }
 
     return (
         <Card className="product" variant="outlined">
@@ -54,7 +60,9 @@ const ProductsListItem = ({
                     <span>Capacity:</span> {capacity}Gb
                 </div> */}
                 <div className="product-price">
-                    <span>Price:</span> {price}$
+                    <p>{(price * currencyArray[indexCurrency].course).toFixed(2)} {currencyArray[indexCurrency].currency}</p>
+                  
+                    {/* <span>Price:</span> {price}$ */}
                 </div>
                 <div className="product-quantity">
                     {/* <Button
@@ -79,7 +87,7 @@ const ProductsListItem = ({
                     variant="outlined"
                     onClick={() => addProductToCart(id, count)}
                 >
-                    Add to cart
+                    Buy
                 </Button>
             </CardActions>
         </Card>

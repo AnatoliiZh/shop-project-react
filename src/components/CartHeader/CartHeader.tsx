@@ -25,10 +25,10 @@ const CartHeader = ({
                 productsInCart={productsInCart}
                 productsObject={productsObject}
             />
-            <CartTotal
+            {/* <CartTotal
                 productsInCart={productsInCart}
                 productsObject={productsObject}
-            />
+            /> */}
         </div>
     )
 }

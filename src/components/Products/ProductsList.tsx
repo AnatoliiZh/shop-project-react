@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import { Button, Grid } from '@mui/material'
+import { Button, Grid, Container } from '@mui/material'
 import CartTotal from 'components/CartTotal/CartTotal'
 import productsArray, {
     getProductsObject,
     
 } from 'utils/productsArray'
 import ProductsListItem from './ProductsListItem'
+// import currancyArray from 'utils/currancyArray'
 
 
 type ProductProps = {
@@ -26,6 +27,7 @@ type Props = {
     productsObject?: {
         [id: number]: ProductProps
     }
+    
 }
 
 const ProductsList = ({ addProductToCart, productsInCart,productsObject = getProductsObject(productsArray) }: Props) => {
@@ -33,7 +35,8 @@ const ProductsList = ({ addProductToCart, productsInCart,productsObject = getPro
     return (        
         <>
    
-            {/* <Container className="container" maxWidth="md"> */}
+            <Container className="container" maxWidth="md">
+
             {/* <h1>Our shop page</h1> */}
             <div className='btn-box'>
                 <Button variant="outlined"
@@ -72,15 +75,21 @@ const ProductsList = ({ addProductToCart, productsInCart,productsObject = getPro
                                 price={price}
                                 image={image}
                                 addProductToCart={addProductToCart}
+                                indexCurrency={indexCurrency}
                             />
                         </Grid>
                     )
                 )}
             </Grid>
+            
+
             <CartTotal
                 productsInCart={productsInCart}
                 productsObject={productsObject}
+                indexCurrency={indexCurrency}
             />
+            
+            </Container>
 
         </>
     )

@@ -27,7 +27,7 @@ const Home = ({ addProductToCart,productsInCart,
                     marginBottom: '30px',
                 }}
             >
-                List of Products{' '}
+                Our shop page{' '}
             </Typography>
             <ProductsList addProductToCart={addProductToCart} productsInCart={productsInCart}
                 productsObject={productsObject}/>

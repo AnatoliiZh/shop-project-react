@@ -1,9 +1,9 @@
-export type ProductProps = {
+export type CurrProps = {
     currency: string    
     course: number   
 }
 
-const currancyArray:ProductProps[] = [
+const currencyArray:CurrProps[] = [
     {
         currency: "USD",    
         course: 1 
@@ -22,4 +22,4 @@ const currancyArray:ProductProps[] = [
     },   
 ] 
 
-export default currancyArray
+export default currencyArray

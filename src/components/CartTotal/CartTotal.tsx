@@ -3,6 +3,7 @@ import productsArray, {
     getProductsObject,
     ProductProps,
 } from 'utils/productsArray'
+import currencyArray from 'utils/currencyArray'
 
 type Props = {
     productsInCart: {
@@ -11,11 +12,13 @@ type Props = {
     productsObject?: {
         [id: number]: ProductProps
     }
+    indexCurrency:number
 }
 
 const CartTotal = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
+    indexCurrency
 }: Props) => {
     return (
         <div>
@@ -24,7 +27,7 @@ const CartTotal = ({
                 (total, productId) =>
                     total +
                     productsInCart[parseInt(productId)] *
-                        productsObject[parseInt(productId)].price,
+                        productsObject[parseInt(productId)].price * currencyArray[indexCurrency].course,
                 0
             )}
             $

@@ -1,6 +1,6 @@
 import React from 'react'
 import CartProductList from 'components/CartProductList/CartProductList'
-import CartTotal from 'components/CartTotal/CartTotal'
+// import CartTotal from 'components/CartTotal/CartTotal'
 import productsArray, {
     getProductsObject,
     ProductProps,
@@ -36,10 +36,10 @@ const CartPage = ({
                 />
             </Grid>
 
-            <CartTotal
+            {/* <CartTotal
                 productsInCart={productsInCart}
                 productsObject={productsObject}
-            />
+            /> */}
         </div>
     )
 }

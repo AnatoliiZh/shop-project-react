@@ -4,17 +4,23 @@ import React from 'react'
 import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { useState } from 'react'
+// import currancyArray from 'utils/currancyArray'
+                  
+
+
 
 type Props = {
     productCount: number
     product: ProductProps
     removeProductFromCart: (id: number) => void
+    indexCurrency:number
 }
 
 const CartProductListItemExtended = ({
     productCount,
     product,
     removeProductFromCart,
+    indexCurrency
 }: Props) => {
     const [count, setCount] = useState<number>(productCount)
 
@@ -34,6 +40,7 @@ const CartProductListItemExtended = ({
                     </div>
                     <div>{product.title}</div>
                     <p>Price for one item: {product.price}</p>
+                    {/* <p>{(product.price*currancyArray[indexCurrency].course).toFixed(2)} {currancyArray[indexCurrency].currency}</p> */}
                     {/* <p>Count: {productCount}</p> */}
                     <div className="product-quantity">
                         <Button
