@@ -6,7 +6,7 @@ type LikeProducts = {
 
 export const initialState:LikeProducts = {
     1:true,
-    2:true
+    3:true
 }
 
 export const likeSlice = createSlice({
@@ -15,3 +15,5 @@ export const likeSlice = createSlice({
     reducers:{}
 
 })    
+
+export default likeSlice.reducer
