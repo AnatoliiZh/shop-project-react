@@ -12,8 +12,14 @@ export const initialState:LikeProducts = {
 export const likeSlice = createSlice({
     name: 'like',
     initialState,
-    reducers:{}
-
+    reducers:{
+        toggleLikeState: (prevState, action) => ({
+            ...prevState,
+            [action.payload]: !prevState[action.payload]
+        })
+    },
 })    
 
 export default likeSlice.reducer
+
+export const {toggleLikeState} = likeSlice.actions
