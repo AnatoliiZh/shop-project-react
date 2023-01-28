@@ -6,20 +6,14 @@ import PaymentPage from 'Pages/PaymentPage/PaymentPage'
 import Home from 'Pages/Home/Home'
 import { Routes, Route } from 'react-router-dom'
 
-type ProductsInCart = {
-    [id: number]: number
-}
-
 type Props = {
     addProductToCart: (id: number, count: number) => void
-    productsInCart: ProductsInCart
     removeProductFromCart: (id: number) => void
     changeProductQuantity: (id: number, changeCount: number) => void
 }
 
 const Main = ({
     addProductToCart,
-    productsInCart,
     removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
@@ -44,7 +38,6 @@ const Main = ({
                     element={
                         <CartPage
                             changeProductQuantity={changeProductQuantity}
-                            productsInCart={productsInCart}
                             removeProductFromCart={removeProductFromCart}
                         />
                     }

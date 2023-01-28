@@ -39,7 +39,6 @@ const App = () => {
             <Header productsInCart={productsInCart} />
             <Main
                 addProductToCart={addProductToCart}
-                productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
                 changeProductQuantity={changeProductQuantity}
             />

@@ -5,7 +5,7 @@ import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
 // import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
-import { useAppSelector } from 'redux/hooks'
+// import { useAppSelector } from 'redux/hooks'
 
 type Props = {
     productCount: number
@@ -20,7 +20,7 @@ const CartProductListItemExtended = ({
     removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
-    const count1 = useAppSelector((state) => state.productsInCart[product.id])
+    // const count1 = useAppSelector((state) => state.productsInCart[product.id])
     return (
         <Grid item xs={12} sm={4}>
             <Card>
@@ -30,7 +30,7 @@ const CartProductListItemExtended = ({
                     </div>
                     <div>{product.title}</div>
                     <p>Price for one item: {product.price}</p>
-                    <p>Count: {count1}</p>
+                    {/* <p>Count: {count1}</p> */}
                     <Quantity
                         count={productCount}
                         onDecrementClick={() =>
