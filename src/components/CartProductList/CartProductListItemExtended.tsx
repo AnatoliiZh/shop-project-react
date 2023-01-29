@@ -3,17 +3,13 @@ import { ProductProps } from 'utils/productsArray'
 import React from 'react'
 import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
-// import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import { useAppDispatch } from 'redux/hooks'
 import { removeProductFromCart, changeProductQuantity } from 'redux/cartReducer'
-// import { useAppSelector } from 'redux/hooks'
 
 type Props = {
     productCount: number
     product: ProductProps
-    removeProductFromCart?: (id: number) => void
-    changeProductQuantity?: (id: number, changeCount: number) => void
 }
 
 const CartProductListItemExtended = ({ productCount, product }: Props) => {

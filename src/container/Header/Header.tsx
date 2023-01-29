@@ -10,13 +10,7 @@ import Logo from 'components/Logo/Logo'
 // import { green } from '@mui/material/colors'
 import './Header.scss'
 
-type Props = {
-    productsInCart: {
-        [id: number]: number
-    }
-}
-
-const Header = ({ productsInCart }: Props) => {
+const Header = () => {
     // console.log(productsInCart)
     let appBar = false
     return (
