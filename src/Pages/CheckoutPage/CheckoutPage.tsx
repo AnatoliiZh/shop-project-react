@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Typography } from '@mui/material'
+import axios from 'axios'
 
 type Props = {}
 
@@ -32,11 +33,29 @@ const CheckoutPage = (props: Props) => {
 
     const onSend = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault() //отмена перезагрузки страницы по умолчанию
+        // fetch()
+        axios
+            .post(
+                'https://my-json-server.typicode.com/kznkv-skillup/server/orders',
+                {
+                    name: orderData.name,
+                    address: orderData.address,
+                }
+            )
+            // .then((res) => console.log(res))
+            .then((res) => res.data)
+            .then(({ name, address }) => {
+                setIsOrderSend(true)
+                setOrderData({
+                    name,
+                    address,
+                })
+            })
     }
 
     const renderForm = () => {
         return (
-            <form>
+            <form onSubmit={onSend}>
                 <div>
                     <input
                         type="text"
