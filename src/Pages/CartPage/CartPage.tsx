@@ -5,6 +5,7 @@ import CartTotal from 'components/CartTotal/CartTotal'
 import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
 import { Grid } from '@mui/material'
 import { useAppSelector } from 'redux/hooks'
+import { Link } from 'react-router-dom'
 
 const CartPage = () => {
     // console.log(Object.keys(productsInCart).length)
@@ -20,6 +21,7 @@ const CartPage = () => {
             </Grid>
 
             <CartTotal productsInCart={productsInCart} />
+            <Link to="/checkout">Proceed to checkout</Link>
         </div>
     )
 }
