@@ -5,22 +5,24 @@ import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
 // import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
+import { useAppDispatch } from 'redux/hooks'
+import { removeProductFromCart } from 'redux/cartReducer'
 // import { useAppSelector } from 'redux/hooks'
 
 type Props = {
     productCount: number
     product: ProductProps
-    removeProductFromCart: (id: number) => void
+    removeProductFromCart?: (id: number) => void
     changeProductQuantity: (id: number, changeCount: number) => void
 }
 
 const CartProductListItemExtended = ({
     productCount,
     product,
-    removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
     // const count1 = useAppSelector((state) => state.productsInCart[product.id])
+    const dispatch = useAppDispatch()
     return (
         <Grid item xs={12} sm={4}>
             <Card>
@@ -35,7 +37,7 @@ const CartProductListItemExtended = ({
                         count={productCount}
                         onDecrementClick={() =>
                             productCount <= 1
-                                ? removeProductFromCart(product.id)
+                                ? dispatch(removeProductFromCart(product.id))
                                 : changeProductQuantity(
                                       product.id,
                                       productCount - 1
@@ -48,7 +50,9 @@ const CartProductListItemExtended = ({
                     ></Quantity>
                     <Button
                         variant="outlined"
-                        onClick={() => removeProductFromCart(product.id)}
+                        onClick={() =>
+                            dispatch(removeProductFromCart(product.id))
+                        }
                     >
                         <DeleteIcon />
                     </Button>
