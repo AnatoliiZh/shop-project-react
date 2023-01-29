@@ -6,21 +6,17 @@ import DeleteIcon from '@mui/icons-material/Delete'
 // import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import { useAppDispatch } from 'redux/hooks'
-import { removeProductFromCart } from 'redux/cartReducer'
+import { removeProductFromCart, changeProductQuantity } from 'redux/cartReducer'
 // import { useAppSelector } from 'redux/hooks'
 
 type Props = {
     productCount: number
     product: ProductProps
     removeProductFromCart?: (id: number) => void
-    changeProductQuantity: (id: number, changeCount: number) => void
+    changeProductQuantity?: (id: number, changeCount: number) => void
 }
 
-const CartProductListItemExtended = ({
-    productCount,
-    product,
-    changeProductQuantity,
-}: Props) => {
+const CartProductListItemExtended = ({ productCount, product }: Props) => {
     // const count1 = useAppSelector((state) => state.productsInCart[product.id])
     const dispatch = useAppDispatch()
     return (
@@ -38,13 +34,20 @@ const CartProductListItemExtended = ({
                         onDecrementClick={() =>
                             productCount <= 1
                                 ? dispatch(removeProductFromCart(product.id))
-                                : changeProductQuantity(
-                                      product.id,
-                                      productCount - 1
+                                : dispatch(
+                                      changeProductQuantity({
+                                          id: product.id,
+                                          count: productCount - 1,
+                                      })
                                   )
                         }
                         onIncrementClick={() =>
-                            changeProductQuantity(product.id, productCount + 1)
+                            dispatch(
+                                changeProductQuantity({
+                                    id: product.id,
+                                    count: productCount + 1,
+                                })
+                            )
                         }
                         min={0}
                     ></Quantity>
