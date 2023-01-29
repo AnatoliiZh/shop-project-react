@@ -1,10 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-type ProductsIncCart = {
+type ProductsInCart = {
     [id:number]:number
 }
 
-export const initialState:ProductsIncCart = {
+export const initialState:ProductsInCart = {
     1:3,
     2:3
 }
@@ -12,9 +12,15 @@ export const initialState:ProductsIncCart = {
 export const cartSlice = createSlice({
     name: 'productsInCart',
     initialState,
-    reducers:{}
+    reducers:{
+        addProductToCart:(state, action) => ({
+            ...state,
+            [action.payload.id]: (state[action.payload.id || 0]) + action.payload.count
+        })
+    }
 })    
+
+export const {addProductToCart} = cartSlice.actions
 
 export default cartSlice.reducer
 
-// export const {toggleLikeState} = likeSlice.actions

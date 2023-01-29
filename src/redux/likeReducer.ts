@@ -20,6 +20,6 @@ export const likeSlice = createSlice({
     },
 })    
 
-export default likeSlice.reducer
-
 export const {toggleLikeState} = likeSlice.actions
+
+export default likeSlice.reducer
