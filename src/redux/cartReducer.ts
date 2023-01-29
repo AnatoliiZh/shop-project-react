@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
     reducers:{
         addProductToCart:(state, action) => ({
             ...state,
-            [action.payload.id]: (state[action.payload.id || 0]) + action.payload.count
+            [action.payload.id]: (state[action.payload.id] || 0) + action.payload.count
         })
     }
 })    
